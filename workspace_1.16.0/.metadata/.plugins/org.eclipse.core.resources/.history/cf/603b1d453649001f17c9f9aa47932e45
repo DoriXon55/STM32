@@ -156,11 +156,8 @@ int main(void)
 	  if(is_button_pressed(0))
 	  {
 		  led_set(index, false);
-
-		  // index = (index > 10) ? 0 : index++; <- give it a try, the same thing in other examples
 		  if(++index >= 10)
 			  index = 0;
-
 		  led_set(led,true);
 
 		  while(is_button_pressed(0)){}
@@ -178,8 +175,6 @@ int main(void)
 	  if(is_button_pressed(2))
 	  {
 		  led_set(index, false);
-		  index = 0;
-		  led_set(index, true);
 	  }
     /* USER CODE BEGIN 3 */
   }

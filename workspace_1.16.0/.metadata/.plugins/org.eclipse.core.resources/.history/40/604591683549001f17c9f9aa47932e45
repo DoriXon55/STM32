@@ -21,8 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdbool.h>
-#include <stddef.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,59 +54,6 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-typedef struct{
-	GPIO_TypeDef* port;
-	unit16_t pin;
-} pin_t;
-
-static const pin_t LED[] =
-{
-		{LED1_GPIO_Port, LED1_Pin},
-		{LED2_GPIO_Port, LED2_Pin},
-		{LED3_GPIO_Port, LED3_Pin},
-		{LED4_GPIO_Port, LED4_Pin},
-		{LED5_GPIO_Port, LED5_Pin},
-		{LED6_GPIO_Port, LED6_Pin},
-		{LED7_GPIO_Port, LED7_Pin},
-		{LED8_GPIO_Port, LED8_Pin},
-		{LED9_GPIO_Port, LED9_Pin},
-		{LED10_GPIO_Port, LED10_Pin},
-};
-
-
-void led_set(size_t led, bool turn_on)
-{
-	GPIO_PinState state = (turn_on) ? GPIO_PIN_SET : GPIO_PIN_RESET;
-	if(led >= 0 && led <= 10)
-		HAL_GPIO_WritePin(LED[led].port, LED[led].pin, state);
-}
-
-bool is_button_pressed(size_t button)
-{
-	switch(button)
-	{
-	case 0:
-		if(HAL_GPIO_ReadPin(USER_BUTTON_GPIO_Port, USER_BUTTON_Pin) == GPIO_PIN_RESET)
-			return true;
-		else
-			return false;
-	case 1:
-		if(HAL_GPIO_ReadPin(USER_BUTTON1_GPIO_Port, USER_BUTTON1_Pin) == GPIO_PIN_RESET)
-			return true;
-		else
-			return false;
-	case 2:
-		if(HAL_GPIO_ReadPin(USER_BUTTON2_GPIO_Port, USER_BUTTON2_Pin) == GPIO_PIN_RESET)
-			return true;
-		else
-			return false;
-	default:
-		return false;
-	}
-}
-
-
 
 /* USER CODE END 0 */
 
@@ -146,41 +92,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-  size_t index = 0;
-  led_set(index,true);
-
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(is_button_pressed(0))
-	  {
-		  led_set(index, false);
 
-		  // index = (index > 10) ? 0 : index++; <- give it a try, the same thing in other examples
-		  if(++index >= 10)
-			  index = 0;
-
-		  led_set(led,true);
-
-		  while(is_button_pressed(0)){}
-	  }
-	  if(is_button_pressed(1))
-	  {
-		  led_set(index, false);
-		  if(--index < 0)
-			  index = 9;
-		  led_set(index, true);
-
-		  while(is_button_pressed(1)){}
-
-	  }
-	  if(is_button_pressed(2))
-	  {
-		  led_set(index, false);
-		  index = 0;
-		  led_set(index, true);
-	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
