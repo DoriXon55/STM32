@@ -1864,3 +1864,38 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2024-07-23 22:34:17,360 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 2980mS.
 2024-07-23 22:34:17,362 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
 2024-07-23 22:34:17,364 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2024-07-23 23:02:52,832 [INFO] Gpio:277 - dependency for GPIO []
+2024-07-23 23:02:55,024 [INFO] Gpio:277 - dependency for GPIO []
+2024-07-23 23:03:19,288 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 449656768 Bytes (696254464)
+2024-07-23 23:03:19,360 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 470106048 Bytes (696254464)
+2024-07-23 23:03:20,154 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 550322112 Bytes (696254464)
+2024-07-23 23:03:20,378 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2024-07-23 23:03:20,378 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2024-07-23 23:03:20,379 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2024-07-23 23:03:20,380 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.0.202406281431\\db\
+2024-07-23 23:03:20,475 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\MXTmpFiles\license.tmp_save
+2024-07-23 23:03:20,568 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\MXTmpFiles\license.tmp
+2024-07-23 23:03:20,628 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\MXTmpFiles\gpio.tmp_save
+2024-07-23 23:03:20,740 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\MXTmpFiles\gpio.tmp
+2024-07-23 23:03:20,761 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Src\stm32l4xx_it.c_save
+2024-07-23 23:03:20,847 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Src\stm32l4xx_it.c
+2024-07-23 23:03:20,854 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Inc\stm32l4xx_it.h_save
+2024-07-23 23:03:20,927 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Inc\stm32l4xx_it.h
+2024-07-23 23:03:21,002 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Src\stm32l4xx_hal_msp.c_save
+2024-07-23 23:03:21,102 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Src\stm32l4xx_hal_msp.c
+2024-07-23 23:03:21,108 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\MXTmpFiles\system.tmp_save
+2024-07-23 23:03:21,180 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\MXTmpFiles\system.tmp
+2024-07-23 23:03:21,198 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-07-23 23:03:21,310 [INFO] CodeEngine:335 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Inc\stm32l4xx_hal_conf.h
+2024-07-23 23:03:21,355 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Inc\main.h_save
+2024-07-23 23:03:21,478 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Inc\main.h
+2024-07-23 23:03:21,500 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Src\main.c_save
+2024-07-23 23:03:21,667 [INFO] CodeEngine:279 - Generated code: C:\Users\doria\STM32CubeIDE\workspace_1.16.0\Zadanie_Domowe_Diody_GPIO\Core\Src\main.c
+2024-07-23 23:03:22,048 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 184mS.
+2024-07-23 23:03:22,051 [INFO] ProjectBuilder:4828 - Project Generator version: 4.4.0-B60
+2024-07-23 23:03:22,134 [INFO] ConfigFileManager:1531 - The Die is : DIE415
+2024-07-23 23:03:22,864 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 813mS.
+2024-07-23 23:03:22,865 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
+2024-07-23 23:03:22,867 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2024-07-23 23:04:37,783 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-07-23 23:04:37,783 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
