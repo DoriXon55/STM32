@@ -1,0 +1,10 @@
+20:16:31 **** Incremental Build of configuration Debug for project TEST_DIODY ****
+make -j12 all 
+arm-none-eabi-size  TEST_DIODY.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12300	     12	   1708	  14020	   36c4	TEST_DIODY.elf
+Finished building: default.size.stdout
+ 
+
+20:16:31 Build Finished. 0 errors, 0 warnings. (took 191ms)
+
