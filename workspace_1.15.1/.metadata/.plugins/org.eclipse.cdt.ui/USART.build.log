@@ -1,21 +1,10 @@
-22:28:59 **** Incremental Build of configuration Debug for project USART ****
+19:29:24 **** Incremental Build of configuration Debug for project USART ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:117:19: warning: unused variable 'value' [-Wunused-variable]
-  117 |           uint8_t value;
-      |                   ^~~~~
-arm-none-eabi-gcc -o "USART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\USART\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: USART.elf
- 
 arm-none-eabi-size  USART.elf 
-arm-none-eabi-objdump -h -S USART.elf  > "USART.list"
    text	   data	    bss	    dec	    hex	filename
-  27976	    468	   2044	  30488	   7718	USART.elf
+  28056	    468	   2044	  30568	   7768	USART.elf
 Finished building: default.size.stdout
  
-Finished building: USART.list
- 
 
-22:29:00 Build Finished. 0 errors, 1 warnings. (took 645ms)
+19:29:24 Build Finished. 0 errors, 0 warnings. (took 186ms)
 

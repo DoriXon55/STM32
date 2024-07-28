@@ -114,7 +114,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  uint8_t value;
 
 	  if(HAL_GPIO_ReadPin(USER_BUTTON_GPIO_Port, USER_BUTTON_Pin) == GPIO_PIN_RESET){
 		  HAL_Delay(DEBOUNCE_DELAY);
@@ -125,6 +124,11 @@ int main(void)
 			  snprintf(message, sizeof(message), "Kliknieto %d razy\r\n", howMany);
 			  HAL_UART_Transmit(&huart2, (uint8_t*)message, strlen(message), HAL_MAX_DELAY);
 			  while(HAL_GPIO_ReadPin(USER_BUTTON_GPIO_Port, USER_BUTTON_Pin) == GPIO_PIN_RESET);
+			  if(howMany == 10)
+			  {
+				  howMany = 0;
+				  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+			  }
 		  }
 	  }
 	  /* USER CODE BEGIN 3 */
