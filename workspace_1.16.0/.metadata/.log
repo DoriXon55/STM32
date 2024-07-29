@@ -121,3 +121,48 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-23 21:30:19.630
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-07-24 12:31:11.124 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-24 12:31:32.507
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-24 12:31:32.516
+!MESSAGE Log4j2 initialized with config file C:\Users\doria\STM32CubeIDE\workspace_1.16.0\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-24 12:31:42.304
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-07-29 10:22:00.346 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-29 10:22:07.122
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-29 10:22:07.125
+!MESSAGE Log4j2 initialized with config file C:\Users\doria\STM32CubeIDE\workspace_1.16.0\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-29 10:22:15.801
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 10:48:10.724
+!MESSAGE Indexed 'L' (21 sources, 113 headers) in 4.31 sec: 9,998 declarations; 40,090 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 10:48:13.792
+!MESSAGE Indexed 'TEST2' (23 sources, 113 headers) in 3.04 sec: 10,026 declarations; 40,417 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 10:48:31.761
+!MESSAGE Indexed 'stm32_kurs_Diodry' (21 sources, 113 headers) in 2.69 sec: 10,001 declarations; 40,198 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 10:48:35.193
+!MESSAGE Indexed 'USART' (25 sources, 122 headers) in 3.39 sec: 12,220 declarations; 52,146 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.26%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 12:06:47.594
+!MESSAGE Indexed 'TAKTOWANIE_ZEGARA' (21 sources, 80 headers) in 2.75 sec: 4,834 declarations; 22,687 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0073%)
