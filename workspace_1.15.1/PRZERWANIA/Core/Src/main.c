@@ -21,18 +21,23 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum{
+	MESSAGE_1,
+	MESSAGE_2,
+	DONE
+}sender_state;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define LINE_MAX_LENGTH 80
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,6 +72,30 @@ int __io_putchar(int ch)
 	return 1;
 }
 
+static char line_buffer[LINE_MAX_LENGTH +1];
+static uint32_t line_length;
+void line_append(uint8_t value)
+{
+	if( value == '\r' || value == '\n')
+	{
+		if(line_length > 0)
+		{
+			line_buffer[line_length] = '\0';
+			if(strcmp(line_bufffer, "on") == 0)
+				HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+			else if(strcmp(line_buffer, "off") == 0)
+				HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+			line_length = 0;
+		}
+	}
+	else {
+		if(line_length >= LINE_MAX_LENGTH)
+			line_length = 0;
+		line_buffer[line_length++] = value;
+	}
+}
+
+
 volatile uint32_t push_counter;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
@@ -75,6 +104,47 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		push_counter++;
 	}
 }
+
+
+sender_state message_number = MESSAGE_1;
+void send_next_message(void)
+{
+	  static char message[] = "Hello!\r\n";
+	  static char message2[] = "Skibidi\r\n";
+
+	  switch(message_number)
+	  {
+	  case MESSAGE_1:
+		  HAL_UART_Transmit_IT(&huart2, (uint8_t*)message, strlen(message));
+		  message_number = MESSAGE_2;
+		  break;
+	  case MESSAGE_2:
+		  HAL_UART_Transmit_IT(&huart2, (uint8_t*)message2, strlen(message2));
+		  message_number = DONE;
+		  break;
+	  default:
+		  break;
+	  }
+}
+
+//wywołanie po wysłaniu danych
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart == &huart2)
+		send_next_message();
+}
+
+//wywołanie po odebraniu danych
+uint8_t uart_rx_buffer;
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart == &huart2)
+	{
+		line_append(uart_rx_buffer);
+		HAL_UART_Receive_IT(&huart2, &uart_rx_buffer, 1);
+	}
+}
+
 
 /* USER CODE END 0 */
 
@@ -109,16 +179,15 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
-  char message[] = "Hello World!\r\n";
-  if(HAL_UART_Transmit_IT(&huart2, (uint8_t*)&message, strlen(message)))
-	  Error_Handler();
-
+  send_next_message();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint32_t old_push_counter = push_counter;
+  //uint32_t old_push_counter = push_counter;
+
+
+  HAL_UART_Receive_IT(&huart2, &uart_rx_buffer, 1);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -158,6 +227,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  
+  
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
