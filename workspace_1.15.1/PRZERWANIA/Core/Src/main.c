@@ -33,6 +33,11 @@ typedef enum{
 	MESSAGE_2,
 	DONE
 }sender_state;
+
+typedef struct {
+	uint32_t push_counter;
+	uint32_t old_push_counter;
+}ButtonCounter;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -81,7 +86,7 @@ void line_append(uint8_t value)
 		if(line_length > 0)
 		{
 			line_buffer[line_length] = '\0';
-			if(strcmp(line_bufffer, "on") == 0)
+			if(strcmp(line_buffer, "on") == 0)
 				HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 			else if(strcmp(line_buffer, "off") == 0)
 				HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
@@ -96,15 +101,22 @@ void line_append(uint8_t value)
 }
 
 
-volatile uint32_t push_counter;
+volatile ButtonCounter button1_counter = { 0,0 };
+volatile ButtonCounter button2_counter = { 0,0 };
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if(GPIO_Pin == USER_BUTTON_Pin)
+	switch (GPIO_Pin)
 	{
-		push_counter++;
+	case USER_BUTTON_Pin:
+		button1_counter.push_counter++;
+		break;
+	case NEW_USER_BUTTON_Pin:
+		button2_counter.push_counter++;
+		break;
+	default:
+		break;
 	}
 }
-
 
 sender_state message_number = MESSAGE_1;
 void send_next_message(void)
@@ -184,14 +196,22 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //uint32_t old_push_counter = push_counter;
 
 
   HAL_UART_Receive_IT(&huart2, &uart_rx_buffer, 1);
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  if (button1_counter.old_push_counter != button1_counter.push_counter)
+	  {
+		  button1_counter.old_push_counter = button1_counter.push_counter;
+		  printf("Button 1 pushed %lu times\r\n", button1_counter.push_counter);
+	  }
+	  if (button2_counter.old_push_counter != button2_counter.push_counter)
+	  {
+		  button2_counter.old_push_counter = button2_counter.push_counter;
+		  printf("Button 2 pushed %lu times\r\n", button2_counter.push_counter);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -227,8 +247,6 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-  
-  
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -308,6 +326,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : NEW_USER_BUTTON_Pin */
+  GPIO_InitStruct.Pin = NEW_USER_BUTTON_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(NEW_USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : LD2_Pin */
   GPIO_InitStruct.Pin = LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -316,6 +340,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 8, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 8, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 

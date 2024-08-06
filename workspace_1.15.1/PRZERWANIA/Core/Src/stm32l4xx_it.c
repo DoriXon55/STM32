@@ -184,6 +184,13 @@ void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
 
+	/* formatowanie wpływa tak, że nasz sekundnik jest o wiele wolniejszy.
+	 * Bez tekstu jest on prawie tak samo dokładny jak w telefonie
+	int sysTickTimer = HAL_GetTick() / 1000;
+    printf("%d\n", sysTickTimer); -> dokładniejsze
+    printf("SysTick Timer: %d\n", sysTickTimer); -> o wiele mniej dokładne
+    */
+
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -197,6 +204,20 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32l4xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line1 interrupt.
+  */
+void EXTI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI1_IRQn 0 */
+
+  /* USER CODE END EXTI1_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(NEW_USER_BUTTON_Pin);
+  /* USER CODE BEGIN EXTI1_IRQn 1 */
+
+  /* USER CODE END EXTI1_IRQn 1 */
+}
 
 /**
   * @brief This function handles USART2 global interrupt.

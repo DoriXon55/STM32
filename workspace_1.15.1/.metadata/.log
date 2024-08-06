@@ -787,3 +787,24 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-06 10:28:31.062
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-08-06 13:01:02.971 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-06 13:01:18.041
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-06 13:01:18.041
+!MESSAGE Log4j2 initialized with config file C:\Users\doria\STM32CubeIDE\workspace_1.15.1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2024-08-06 13:01:28.082
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-06 13:01:28.574
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2024-08-06 13:02:04.563
+!MESSAGE Won't launch debug session since we failed to locate the binary.
