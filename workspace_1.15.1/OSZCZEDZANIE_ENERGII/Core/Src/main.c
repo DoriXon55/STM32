@@ -75,7 +75,7 @@ void HAL_Delay(uint32_t Delay)
 	}
 	while((HAL_GetTick() - tickstart) < wait)
 	{
-		_WFI();
+		__WFI();
 	}
 }
 /* USER CODE END 0 */
