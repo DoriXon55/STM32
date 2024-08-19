@@ -1,70 +1,35 @@
-22:28:45 **** Incremental Build of configuration Debug for project LICZNIK_2_1 ****
+22:53:36 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "LICZNIK_2_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_2_1\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_2_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: LICZNIK_2_1.elf
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
  
-arm-none-eabi-size  LICZNIK_2_1.elf 
-arm-none-eabi-objdump -h -S LICZNIK_2_1.elf  > "LICZNIK_2_1.list"
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
    text	   data	    bss	    dec	    hex	filename
-  19236	    104	   2120	  21460	   53d4	LICZNIK_2_1.elf
+  12920	     16	   1824	  14760	   39a8	LICZNIK_HOMEWORK.elf
 Finished building: default.size.stdout
  
-Finished building: LICZNIK_2_1.list
+Finished building: LICZNIK_HOMEWORK.list
  
-22:29:04 **** Incremental Build of configuration Debug for project LICZNIKI ****
+22:53:39 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12920	     16	   1824	  14760	   39a8	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+22:54:17 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "LICZNIKI.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIKI\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIKI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: LICZNIKI.elf
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
  
-arm-none-eabi-size  LICZNIKI.elf 
-arm-none-eabi-objdump -h -S LICZNIKI.elf  > "LICZNIKI.list"
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
    text	   data	    bss	    dec	    hex	filename
-  20792	     92	   1956	  22840	   5938	LICZNIKI.elf
+  12920	     16	   1824	  14760	   39a8	LICZNIK_HOMEWORK.elf
 Finished building: default.size.stdout
  
-Finished building: LICZNIKI.list
- 
-22:30:19 **** Incremental Build of configuration Debug for project LICZNIK_2_1 ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "LICZNIK_2_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_2_1\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_2_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: LICZNIK_2_1.elf
- 
-arm-none-eabi-size  LICZNIK_2_1.elf 
-arm-none-eabi-objdump -h -S LICZNIK_2_1.elf  > "LICZNIK_2_1.list"
-   text	   data	    bss	    dec	    hex	filename
-  19236	    104	   2120	  21460	   53d4	LICZNIK_2_1.elf
-Finished building: default.size.stdout
- 
-Finished building: LICZNIK_2_1.list
- 
-22:31:07 **** Incremental Build of configuration Debug for project LICZNIK_2_1 ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "LICZNIK_2_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_2_1\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_2_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: LICZNIK_2_1.elf
- 
-arm-none-eabi-size  LICZNIK_2_1.elf 
-arm-none-eabi-objdump -h -S LICZNIK_2_1.elf  > "LICZNIK_2_1.list"
-   text	   data	    bss	    dec	    hex	filename
-  19236	    104	   2120	  21460	   53d4	LICZNIK_2_1.elf
-Finished building: default.size.stdout
- 
-Finished building: LICZNIK_2_1.list
- 
-22:31:47 **** Incremental Build of configuration Debug for project LICZNIK_2_1 ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "LICZNIK_2_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_2_1\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_2_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: LICZNIK_2_1.elf
- 
-arm-none-eabi-size  LICZNIK_2_1.elf 
-arm-none-eabi-objdump -h -S LICZNIK_2_1.elf  > "LICZNIK_2_1.list"
-   text	   data	    bss	    dec	    hex	filename
-  19232	    104	   2120	  21456	   53d0	LICZNIK_2_1.elf
-Finished building: default.size.stdout
- 
-Finished building: LICZNIK_2_1.list
+Finished building: LICZNIK_HOMEWORK.list
  

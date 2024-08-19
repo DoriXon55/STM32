@@ -1,17 +1,10 @@
-21:49:43 **** Build of configuration Debug for project PRZERWANIA ****
+22:48:49 **** Build of configuration Debug for project PRZERWANIA ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
-arm-none-eabi-gcc -o "PRZERWANIA.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\PRZERWANIA\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRZERWANIA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PRZERWANIA.elf
- 
 arm-none-eabi-size  PRZERWANIA.elf 
-arm-none-eabi-objdump -h -S PRZERWANIA.elf  > "PRZERWANIA.list"
    text	   data	    bss	    dec	    hex	filename
   21576	    128	   2152	  23856	   5d30	PRZERWANIA.elf
 Finished building: default.size.stdout
  
-Finished building: PRZERWANIA.list
- 
 
-21:49:45 Build Finished. 0 errors, 0 warnings. (took 1s.357ms)
+22:48:50 Build Finished. 0 errors, 0 warnings. (took 355ms)
 
