@@ -33,3 +33,393 @@ Finished building: default.size.stdout
  
 Finished building: LICZNIK_HOMEWORK.list
  
+20:55:12 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:442,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:99:32: error: 'htim2' undeclared (first use in this function); did you mean 'htim'?
+   99 |         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (uint16_t)red_pwm_value);  // Update Red channel
+      |                                ^~~~~
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h:1545:41: note: in definition of macro '__HAL_TIM_SET_COMPARE'
+ 1545 |   (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) :\
+      |                                         ^~~~~~~~~~
+../Core/Src/main.c:99:32: note: each undeclared identifier is reported only once for each function it appears in
+   99 |         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (uint16_t)red_pwm_value);  // Update Red channel
+      |                                ^~~~~
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h:1545:41: note: in definition of macro '__HAL_TIM_SET_COMPARE'
+ 1545 |   (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) :\
+      |                                         ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:3: error: 'step_red' undeclared (first use in this function)
+  150 |   step_red = (float)(target_red_value - red_pwm_value) / TOTAL_STEPS;
+      |   ^~~~~~~~
+../Core/Src/main.c:150:22: error: 'target_red_value' undeclared (first use in this function)
+  150 |   step_red = (float)(target_red_value - red_pwm_value) / TOTAL_STEPS;
+      |                      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:151:3: error: 'step_green' undeclared (first use in this function)
+  151 |   step_green = (float)(target_green_value - green_pwm_value) / TOTAL_STEPS;
+      |   ^~~~~~~~~~
+../Core/Src/main.c:151:24: error: 'target_green_value' undeclared (first use in this function)
+  151 |   step_green = (float)(target_green_value - green_pwm_value) / TOTAL_STEPS;
+      |                        ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:151:45: error: 'green_pwm_value' undeclared (first use in this function); did you mean 'red_pwm_value'?
+  151 |   step_green = (float)(target_green_value - green_pwm_value) / TOTAL_STEPS;
+      |                                             ^~~~~~~~~~~~~~~
+      |                                             red_pwm_value
+../Core/Src/main.c:152:3: error: 'step_blue' undeclared (first use in this function)
+  152 |   step_blue = (float)(target_blue_value - blue_pwm_value) / TOTAL_STEPS;
+      |   ^~~~~~~~~
+../Core/Src/main.c:152:23: error: 'target_blue_value' undeclared (first use in this function)
+  152 |   step_blue = (float)(target_blue_value - blue_pwm_value) / TOTAL_STEPS;
+      |                       ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+20:55:36 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:442,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:99:32: error: 'htim2' undeclared (first use in this function); did you mean 'htim'?
+   99 |         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (uint16_t)red_pwm_value);  // Update Red channel
+      |                                ^~~~~
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h:1545:41: note: in definition of macro '__HAL_TIM_SET_COMPARE'
+ 1545 |   (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) :\
+      |                                         ^~~~~~~~~~
+../Core/Src/main.c:99:32: note: each undeclared identifier is reported only once for each function it appears in
+   99 |         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, (uint16_t)red_pwm_value);  // Update Red channel
+      |                                ^~~~~
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h:1545:41: note: in definition of macro '__HAL_TIM_SET_COMPARE'
+ 1545 |   (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) :\
+      |                                         ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+20:56:00 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  12604	     16	   1800	  14420	   3854	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:00:10 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12604	     16	   1800	  14420	   3854	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+21:01:18 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  12564	     16	   1800	  14380	   382c	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:04:19 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  12508	     16	   1800	  14324	   37f4	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:04:39 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  12508	     16	   1800	  14324	   37f4	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:06:59 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  12592	     16	   1800	  14408	   3848	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:07:32 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12592	     16	   1800	  14408	   3848	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+21:08:48 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  12592	     16	   1800	  14408	   3848	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:10:36 **** Incremental Build of configuration Debug for project LICZNIK_2_1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc -o "LICZNIK_2_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_2_1\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_2_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_2_1.elf
+ 
+arm-none-eabi-size  LICZNIK_2_1.elf 
+arm-none-eabi-objdump -h -S LICZNIK_2_1.elf  > "LICZNIK_2_1.list"
+   text	   data	    bss	    dec	    hex	filename
+  21204	    104	   2120	  23428	   5b84	LICZNIK_2_1.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_2_1.list
+ 
+21:11:14 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12592	     16	   1800	  14408	   3848	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+21:13:30 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:68:21: error: 'direction' undeclared (first use in this function)
+   68 |                 if (direction == 1) // Red to Blue
+      |                     ^~~~~~~~~
+../Core/Src/main.c:68:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:70:25: error: 'red_pwm_value' undeclared (first use in this function)
+   70 |                     if (red_pwm_value > MIN_PWM_VALUE)
+      |                         ^~~~~~~~~~~~~
+../Core/Src/main.c:70:41: error: 'MIN_PWM_VALUE' undeclared (first use in this function)
+   70 |                     if (red_pwm_value > MIN_PWM_VALUE)
+      |                                         ^~~~~~~~~~~~~
+../Core/Src/main.c:72:42: error: 'STEP_SIZE' undeclared (first use in this function)
+   72 |                         red_pwm_value -= STEP_SIZE; // Decrease Red
+      |                                          ^~~~~~~~~
+../Core/Src/main.c:74:25: error: 'blue_pwm_value' undeclared (first use in this function)
+   74 |                     if (blue_pwm_value < MAX_PWM_VALUE)
+      |                         ^~~~~~~~~~~~~~
+../Core/Src/main.c:74:42: error: 'MAX_PWM_VALUE' undeclared (first use in this function)
+   74 |                     if (blue_pwm_value < MAX_PWM_VALUE)
+      |                                          ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:168:36: warning: implicit declaration of function 'sinf' [-Wimplicit-function-declaration]
+  168 |           float r = 1000 * (1.0f + sinf(counter / 50.0f)); // Red oscillates
+      |                                    ^~~~
+../Core/Src/main.c:21:1: note: include '<math.h>' or provide a declaration of 'sinf'
+   20 | #include "main.h"
+  +++ |+#include <math.h>
+   21 | 
+../Core/Src/main.c:168:36: warning: incompatible implicit declaration of built-in function 'sinf' [-Wbuiltin-declaration-mismatch]
+  168 |           float r = 1000 * (1.0f + sinf(counter / 50.0f)); // Red oscillates
+      |                                    ^~~~
+../Core/Src/main.c:168:36: note: include '<math.h>' or provide a declaration of 'sinf'
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:181:1: error: expected identifier or '(' before '}' token
+  181 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:13:38 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:36: warning: implicit declaration of function 'sinf' [-Wimplicit-function-declaration]
+  126 |           float r = 1000 * (1.0f + sinf(counter / 50.0f)); // Red oscillates
+      |                                    ^~~~
+../Core/Src/main.c:21:1: note: include '<math.h>' or provide a declaration of 'sinf'
+   20 | #include "main.h"
+  +++ |+#include <math.h>
+   21 | 
+../Core/Src/main.c:126:36: warning: incompatible implicit declaration of built-in function 'sinf' [-Wbuiltin-declaration-mismatch]
+  126 |           float r = 1000 * (1.0f + sinf(counter / 50.0f)); // Red oscillates
+      |                                    ^~~~
+../Core/Src/main.c:126:36: note: include '<math.h>' or provide a declaration of 'sinf'
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:139:1: error: expected identifier or '(' before '}' token
+  139 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:14:05 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:139:1: error: expected identifier or '(' before '}' token
+  139 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:14:30 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  16352	     12	   1804	  18168	   46f8	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 
+21:16:51 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:201:13: error: invalid storage class for function 'MX_TIM3_Init'
+  201 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:268:13: error: invalid storage class for function 'MX_TIM6_Init'
+  268 | static void MX_TIM6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:306:13: error: invalid storage class for function 'MX_TIM7_Init'
+  306 | static void MX_TIM7_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:344:13: error: invalid storage class for function 'MX_GPIO_Init'
+  344 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:385:1: error: expected declaration or statement at end of input
+  385 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:53:13: warning: 'MX_GPIO_Init' used but never defined
+   53 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:54:13: warning: 'MX_TIM6_Init' used but never defined
+   54 | static void MX_TIM6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_TIM7_Init' used but never defined
+   55 | static void MX_TIM7_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_TIM3_Init' used but never defined
+   56 | static void MX_TIM3_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:376:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  376 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:344:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  344 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:306:13: warning: 'MX_TIM7_Init' defined but not used [-Wunused-function]
+  306 | static void MX_TIM7_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:268:13: warning: 'MX_TIM6_Init' defined but not used [-Wunused-function]
+  268 | static void MX_TIM6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:201:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
+  201 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:150:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  150 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:17:19 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:202:13: error: invalid storage class for function 'MX_TIM3_Init'
+  202 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:269:13: error: invalid storage class for function 'MX_TIM6_Init'
+  269 | static void MX_TIM6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:307:13: error: invalid storage class for function 'MX_TIM7_Init'
+  307 | static void MX_TIM7_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:345:13: error: invalid storage class for function 'MX_GPIO_Init'
+  345 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:386:1: error: expected declaration or statement at end of input
+  386 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:53:13: warning: 'MX_GPIO_Init' used but never defined
+   53 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:54:13: warning: 'MX_TIM6_Init' used but never defined
+   54 | static void MX_TIM6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_TIM7_Init' used but never defined
+   55 | static void MX_TIM7_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_TIM3_Init' used but never defined
+   56 | static void MX_TIM3_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:377:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  377 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:345:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  345 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:307:13: warning: 'MX_TIM7_Init' defined but not used [-Wunused-function]
+  307 | static void MX_TIM7_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:269:13: warning: 'MX_TIM6_Init' defined but not used [-Wunused-function]
+  269 | static void MX_TIM6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:202:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
+  202 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:151:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  151 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:18:06 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LICZNIK_HOMEWORK.elf
+ 
+arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
+arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
+   text	   data	    bss	    dec	    hex	filename
+  16300	     12	   1804	  18116	   46c4	LICZNIK_HOMEWORK.elf
+Finished building: default.size.stdout
+ 
+Finished building: LICZNIK_HOMEWORK.list
+ 

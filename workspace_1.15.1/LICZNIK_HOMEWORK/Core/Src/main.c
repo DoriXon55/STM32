@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <math.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,16 +42,14 @@
 
 /* Private variables ---------------------------------------------------------*/
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 
-/* USER CODE BEGIN PV */
-uint16_t red_pwm_value = 0, green_pwm_value = 0, blue_pwm_value = 0;
-uint16_t target_red_value = 1000, target_green_value = 0, target_blue_value = 0;
-float step_red, step_green, step_blue;
+UART_HandleTypeDef huart2;
 
-const uint16_t TRANSITION_TIME_MS = 1000, TIMER_INTERVAL_MS = 10;
-const uint8_t TOTAL_STEPS = TRANSITION_TIME_MS / TIMER_INTERVAL_MS;
+/* USER CODE BEGIN PV */
+float counter = 0.0f;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,47 +58,52 @@ static void MX_GPIO_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_TIM4_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+uint16_t calc_pwm(float value);
+int __io_putchar(int ch);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if(htim->Instance == TIM3)
-	{
-		red_pwm_value += step_red;
-		green_pwm_value += step_green;
-		blue_pwm_value += step_blue;
-		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, red_pwm_value);
-		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, green_pwm_value);
-		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, blue_pwm_value);
+	 if (htim->Instance == TIM3)
+	    {
 
-		if((red_pwm_value == target_red_value) && (green_pwm_value == target_green_value) && (blue_pwm_value == target_blue_value))
-		{
-			if (target_red_value == 1000)
-			{
-				target_red_value = 0;
-				target_blue_value = 1000;
-			} else {
-				target_red_value = 1000;
-				target_blue_value = 0;
-			}
-			target_green_value = 0;
-			step_red = (float)(target_red_value - red_pwm_value) / TOTAL_STEPS;
-			step_green = (float)(target_green_value - green_pwm_value) / TOTAL_STEPS;
-			step_blue = (float)(target_blue_value - blue_pwm_value) / TOTAL_STEPS;
-		}
+	        float r = 1000 * (1.0f + sinf(counter / 50.0f));
+	        float b = 1000 * (1.0f + sinf((counter + 180.0f) / 50.0f));
 
-	}
 
+	        __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, calc_pwm(r));
+	        __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, calc_pwm(b));
+
+
+	        counter += 1.0f;
+	    }
 	if (htim == &htim6)
 		HAL_GPIO_TogglePin(YELLOW_LED_GPIO_Port, YELLOW_LED_Pin);
 
 	if(htim == &htim7)
 		HAL_GPIO_TogglePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin);
 
+}
+uint16_t calc_pwm(float value)
+{
+
+    if (value < 0) value = 0;
+    if (value > 1000) value = 1000;
+    return (uint16_t)value;
+}
+int __io_putchar(int ch)
+{
+	if(ch == '\n')
+	{
+		__io_putchar('\r');
+	}
+	HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, HAL_MAX_DELAY);
+	return 1;
 }
 /* USER CODE END 0 */
 
@@ -134,16 +138,16 @@ int main(void)
   MX_TIM6_Init();
   MX_TIM7_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim6);
   HAL_TIM_Base_Start_IT(&htim7);
+  HAL_TIM_Base_Start_IT(&htim3);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+  HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
 
-  step_red = (float)(target_red_value - red_pwm_value) / TOTAL_STEPS;
-  step_green = (float)(target_green_value - green_pwm_value) / TOTAL_STEPS;
-  step_blue = (float)(target_blue_value - blue_pwm_value) / TOTAL_STEPS;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -153,7 +157,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+ }
   /* USER CODE END 3 */
 }
 
@@ -275,6 +279,55 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 0;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
   * @brief TIM6 Initialization Function
   * @param None
   * @retval None
@@ -351,6 +404,41 @@ static void MX_TIM7_Init(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -362,18 +450,19 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GREEN_LED_Pin|YELLOW_LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GREEN_LED_Pin|YELLOW_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : GREEN_LED_Pin YELLOW_LED_Pin */
   GPIO_InitStruct.Pin = GREEN_LED_Pin|YELLOW_LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
