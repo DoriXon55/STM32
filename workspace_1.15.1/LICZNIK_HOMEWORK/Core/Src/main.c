@@ -51,7 +51,9 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 uint16_t red_pwm_value = 1000;
 uint16_t blue_pwm_value = 0;
+float counter = 0.0f;
 int8_t direction = 1;
+float increment = 1.0f;
 uint16_t step_size = 10;
 //float counter = 0.0f;
 /* USER CODE END PV */
@@ -65,7 +67,7 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-//uint16_t calc_pwm(float value);
+static uint16_t calc_pwm(float value);
 int __io_putchar(int ch);
 /* USER CODE END PFP */
 
@@ -84,44 +86,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance == TIM3)
 	    {
+		float r = 1000 * (1.0f + sinf(counter/50.0f));
+		float b = 1000 * (1.0f + sinf((counter + 180.0f) / 50.0f));
+		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, calc_pwm(r));
+		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, calc_pwm(b));
 
-	        if (direction == 1)
-	        {
-	            if (red_pwm_value > 0)
-	            {
-	                red_pwm_value -= step_size;
-	            }
-	            if (blue_pwm_value < 1000)
-	            {
-	                blue_pwm_value += step_size;
-	            }
-
-	            if (red_pwm_value <= 0 && blue_pwm_value >= 1000)
-	            {
-	                direction = -1;
-	            }
-	        }
-	        else if (direction == -1)
-	        {
-	            if (blue_pwm_value > 0)
-	            {
-	                blue_pwm_value -= step_size;
-	            }
-	            if (red_pwm_value < 1000)
-	            {
-	                red_pwm_value += step_size;
-	            }
-
-
-	            if (blue_pwm_value <= 0 && red_pwm_value >= 1000)
-	            {
-	                direction = 1;
-	            }
-	        }
-
-
-	        __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, red_pwm_value);
-	        __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, blue_pwm_value);
+		counter += increment;
 	    }
 
 	if (htim == &htim6)
@@ -131,7 +101,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		HAL_GPIO_TogglePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin);
 
 }
-/*
+
 uint16_t calc_pwm(float value)
 {
 
@@ -139,7 +109,7 @@ uint16_t calc_pwm(float value)
     if (value > 1000) value = 1000;
     return (uint16_t)value;
 }
-*/
+
 int __io_putchar(int ch)
 {
 	if(ch == '\n')
@@ -194,13 +164,14 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  uint16_t encoder_counter = __HAL_TIM_GET_COUNTER(&htim4);
-	  printf("encoder_value: %lu \n", encoder_counter);
-	  step_size = (encoder_counter / 10);
-	  if (step_size < 1)
-		  step_size = 1;
-	  if(step_size > 100)
-		  step_size = 100;
+	  int16_t encoder_value = __HAL_TIM_GET_COUNTER(&htim4);
+	  increment = (float)(encoder_value) / 100.0f;
+	  if(increment < 0.1f)
+		  increment = 0.1f;
+	  if(increment > 100.0f)
+		  increment = 100.0f;
+
+	  HAL_Delay(10);
     /* USER CODE BEGIN 3 */
  }
   /* USER CODE END 3 */
@@ -344,7 +315,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 0;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 39;
+  htim4.Init.Period = 65535;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;

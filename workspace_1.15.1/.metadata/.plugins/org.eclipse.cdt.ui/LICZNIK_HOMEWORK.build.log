@@ -1,25 +1,17 @@
-22:46:34 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
+14:35:46 **** Incremental Build of configuration Debug for project LICZNIK_HOMEWORK ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:198:36: warning: format '%lu' expects argument of type 'long unsigned int', but argument 2 has type 'int' [-Wformat=]
-  198 |           printf("encoder_value: %lu \n", encoder_counter);
-      |                                  ~~^      ~~~~~~~~~~~~~~~
-      |                                    |      |
-      |                                    |      int
-      |                                    long unsigned int
-      |                                  %u
 arm-none-eabi-gcc -o "LICZNIK_HOMEWORK.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\LICZNIK_HOMEWORK\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LICZNIK_HOMEWORK.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LICZNIK_HOMEWORK.elf
  
 arm-none-eabi-size  LICZNIK_HOMEWORK.elf 
 arm-none-eabi-objdump -h -S LICZNIK_HOMEWORK.elf  > "LICZNIK_HOMEWORK.list"
    text	   data	    bss	    dec	    hex	filename
-  26428	    112	   2352	  28892	   70dc	LICZNIK_HOMEWORK.elf
+  25768	     16	   2016	  27800	   6c98	LICZNIK_HOMEWORK.elf
 Finished building: default.size.stdout
  
 Finished building: LICZNIK_HOMEWORK.list
  
 
-22:46:36 Build Finished. 0 errors, 1 warnings. (took 1s.117ms)
+14:35:46 Build Finished. 0 errors, 0 warnings. (took 846ms)
 
