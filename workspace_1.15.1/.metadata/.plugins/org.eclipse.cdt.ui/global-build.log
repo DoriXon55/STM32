@@ -1,4 +1,18 @@
-21:21:11 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+20:56:16 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+20:56:34 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+21:02:06 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,7 +21,389 @@ Finished building target: ADC_HOMEWORK_3.elf
 arm-none-eabi-size  ADC_HOMEWORK_3.elf 
 arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
    text	   data	    bss	    dec	    hex	filename
-  34692	    104	   2360	  37156	   9124	ADC_HOMEWORK_3.elf
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:05:27 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:07:53 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  35736	    104	   2536	  38376	   95e8	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:08:53 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:09:27 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:10:20 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  36056	    104	   2536	  38696	   9728	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:11:51 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  36056	    104	   2536	  38696	   9728	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:13:28 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:13:38 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35852	    104	   2536	  38492	   965c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+21:19:40 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33804	    104	   2536	  36444	   8e5c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:24:18 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33804	    104	   2536	  36444	   8e5c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+21:27:57 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33248	    104	   2536	  35888	   8c30	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:29:21 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33252	    104	   2536	  35892	   8c34	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:30:49 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33256	    104	   2536	  35896	   8c38	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:33:57 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33260	    104	   2536	  35900	   8c3c	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:38:15 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'pwm_value':
+../Core/Src/main.c:117:9: warning: implicit declaration of function '__HAL_TIM_COMPARE' [-Wimplicit-function-declaration]
+  117 |         __HAL_TIM_COMPARE(&htim3, TIM_CHANNEL_1, pwm_led1);
+      |         ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `pwm_value':
+C:/Users/doria/STM32CubeIDE/workspace_1.15.1/ADC_HOMEWORK_3/Debug/../Core/Src/main.c:117: undefined reference to `__HAL_TIM_COMPARE'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/doria/STM32CubeIDE/workspace_1.15.1/ADC_HOMEWORK_3/Debug/../Core/Src/main.c:118: undefined reference to `__HAL_TIM_COMPARE'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `HAL_ADC_ConvCpltCallback':
+C:/Users/doria/STM32CubeIDE/workspace_1.15.1/ADC_HOMEWORK_3/Debug/../Core/Src/main.c:129: undefined reference to `led_brightness'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC_HOMEWORK_3.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:38:35 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `HAL_ADC_ConvCpltCallback':
+C:/Users/doria/STM32CubeIDE/workspace_1.15.1/ADC_HOMEWORK_3/Debug/../Core/Src/main.c:129: undefined reference to `led_brightness'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADC_HOMEWORK_3.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:39:02 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33204	    104	   2536	  35844	   8c04	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:40:06 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33204	    104	   2536	  35844	   8c04	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:41:05 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  33268	    104	   2536	  35908	   8c44	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:49:28 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'test_adc_code':
+../Core/Src/main.c:130:44: error: expected '}' before ')' token
+  130 |         ADC_ChannelConfTypeDef sConfig = {0);
+      |                                          ~ ^
+../Core/Src/main.c:130:44: error: expected ',' or ';' before ')' token
+../Core/Src/main.c:134:39: error: incompatible type for argument 2 of 'HAL_ADC_ConfigChannel'
+  134 |         HAL_ADC_ConfigChannel(&hadc1, sConfig);
+      |                                       ^~~~~~~
+      |                                       |
+      |                                       ADC_ChannelConfTypeDef
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:278,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:1966:102: note: expected 'const ADC_ChannelConfTypeDef *' but argument is of type 'ADC_ChannelConfTypeDef'
+ 1966 | HAL_StatusTypeDef       HAL_ADC_ConfigChannel(ADC_HandleTypeDef *hadc, const ADC_ChannelConfTypeDef *pConfig);
+      |                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:138:9: error: unknown type name 'reutrn'
+  138 |         reutrn HAL_ADC_GetValue(&hadc1);
+      |         ^~~~~~
+../Core/Src/main.c:138:33: error: expected declaration specifiers or '...' before '&' token
+  138 |         reutrn HAL_ADC_GetValue(&hadc1);
+      |                                 ^
+../Core/Src/main.c:139:1: warning: control reaches end of non-void function [-Wreturn-type]
+  139 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:50:06 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'test_adc_code':
+../Core/Src/main.c:152:44: error: expected '}' before ')' token
+  152 |         ADC_ChannelConfTypeDef sConfig = {0);
+      |                                          ~ ^
+../Core/Src/main.c:152:44: error: expected ',' or ';' before ')' token
+../Core/Src/main.c:156:39: error: incompatible type for argument 2 of 'HAL_ADC_ConfigChannel'
+  156 |         HAL_ADC_ConfigChannel(&hadc1, sConfig);
+      |                                       ^~~~~~~
+      |                                       |
+      |                                       ADC_ChannelConfTypeDef
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:278,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:1966:102: note: expected 'const ADC_ChannelConfTypeDef *' but argument is of type 'ADC_ChannelConfTypeDef'
+ 1966 | HAL_StatusTypeDef       HAL_ADC_ConfigChannel(ADC_HandleTypeDef *hadc, const ADC_ChannelConfTypeDef *pConfig);
+      |                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:160:9: error: unknown type name 'reutrn'
+  160 |         reutrn HAL_ADC_GetValue(&hadc1);
+      |         ^~~~~~
+../Core/Src/main.c:160:33: error: expected declaration specifiers or '...' before '&' token
+  160 |         reutrn HAL_ADC_GetValue(&hadc1);
+      |                                 ^
+../Core/Src/main.c:161:1: warning: control reaches end of non-void function [-Wreturn-type]
+  161 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:50:26 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'test_adc_code':
+../Core/Src/main.c:152:44: error: expected '}' before ')' token
+  152 |         ADC_ChannelConfTypeDef sConfig = {0);
+      |                                          ~ ^
+../Core/Src/main.c:152:44: error: expected ',' or ';' before ')' token
+../Core/Src/main.c:156:39: error: incompatible type for argument 2 of 'HAL_ADC_ConfigChannel'
+  156 |         HAL_ADC_ConfigChannel(&hadc1, sConfig);
+      |                                       ^~~~~~~
+      |                                       |
+      |                                       ADC_ChannelConfTypeDef
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:278,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:1966:102: note: expected 'const ADC_ChannelConfTypeDef *' but argument is of type 'ADC_ChannelConfTypeDef'
+ 1966 | HAL_StatusTypeDef       HAL_ADC_ConfigChannel(ADC_HandleTypeDef *hadc, const ADC_ChannelConfTypeDef *pConfig);
+      |                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:50:49 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  34256	    104	   2536	  36896	   9020	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_HOMEWORK_3.list
+ 
+21:51:24 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34256	    104	   2536	  36896	   9020	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+21:51:55 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34256	    104	   2536	  36896	   9020	ADC_HOMEWORK_3.elf
+Finished building: default.size.stdout
+ 
+21:52:33 **** Incremental Build of configuration Debug for project ADC_HOMEWORK_3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_HOMEWORK_3.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\doria\STM32CubeIDE\workspace_1.15.1\ADC_HOMEWORK_3\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_HOMEWORK_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_HOMEWORK_3.elf
+ 
+arm-none-eabi-size  ADC_HOMEWORK_3.elf 
+arm-none-eabi-objdump -h -S ADC_HOMEWORK_3.elf  > "ADC_HOMEWORK_3.list"
+   text	   data	    bss	    dec	    hex	filename
+  34204	    104	   2536	  36844	   8fec	ADC_HOMEWORK_3.elf
 Finished building: default.size.stdout
  
 Finished building: ADC_HOMEWORK_3.list

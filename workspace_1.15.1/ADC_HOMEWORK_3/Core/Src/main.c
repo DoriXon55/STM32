@@ -55,8 +55,7 @@ TIM_HandleTypeDef htim3;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint32_t adc_buffer[ADC_BUFFER_SIZE];
-volatile static uint16_t joystick[ADC2_BUFFER_SIZE];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,7 +70,6 @@ static void MX_TIM3_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_ADC2_Init(void);
 /* USER CODE BEGIN PFP */
-int __io_putchar(int ch);
 void START_FUNCTIONS(void);
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 void blining_frequency(uint32_t pot_value);
@@ -81,16 +79,8 @@ void led_brightness(uint32_t light_value);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void START_FUNCTIONS(void)
-{
-	HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
-	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, ADC_BUFFER_SIZE);
-	//HAL_ADC_Start_DMA(&hadc1, (uint32_t*)joystick, AD2_BUFFER_SIZE);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-
-
-}
+uint32_t adc_buffer[ADC_BUFFER_SIZE];
+volatile static uint16_t joystick[ADC2_BUFFER_SIZE];
 
 int __io_putchar(int ch)
 {
@@ -127,18 +117,48 @@ void led_brightness(uint32_t light_value)
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, pwm_value);
 }
 
+
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	uint32_t pot_value = adc_buffer[0];
-	uint32_t light_value = adc_buffer[1];
+	if(hadc->Instance == ADC1)
+	{
+		uint32_t pot_value = adc_buffer[0];
+		uint32_t light_value = adc_buffer[1];
 
-	blinking_frequency(pot_value);
-	led_brightness(light_value);
-	printf("Potentiometer: %lu, Light sensor: %lu\n", pot_value, light_value);
+		blinking_frequency(pot_value);
+		led_brightness(light_value);
+		//printf("Potentiometer: %lu, Light sensor: %lu\n", pot_value, light_value);
+
+	}
 
 }
 
 
+
+
+void START_FUNCTIONS(void)
+{
+	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, ADC_BUFFER_SIZE);
+	//HAL_ADC_Start_DMA(&hadc1, (uint32_t*)joystick, AD2_BUFFER_SIZE);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
+
+}
+
+
+uint32_t test_adc_code(uint32_t canal)
+{
+	ADC_ChannelConfTypeDef sConfig = {0};
+	sConfig.Channel = canal;
+	sConfig.Rank = ADC_REGULAR_RANK_1;
+	sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
+	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	return HAL_ADC_GetValue(&hadc1);
+}
 
 
 /* USER CODE END 0 */
@@ -192,6 +212,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  uint32_t fotoresistor_value = test_adc_code(ADC_CHANNEL_2);
+	  printf("foto: %lu\n", fotoresistor_value);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -306,7 +328,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.DMAContinuousRequests = ENABLE;
-  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   hadc1.Init.OversamplingMode = DISABLE;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
@@ -337,7 +359,6 @@ static void MX_ADC1_Init(void)
   /** Configure Regular Channel
   */
   sConfig.Rank = ADC_REGULAR_RANK_2;
-  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -512,11 +533,11 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
+  htim3.Init.Prescaler = 7999;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 9999;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
   {
     Error_Handler();
@@ -538,7 +559,7 @@ static void MX_TIM3_Init(void)
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
   {
