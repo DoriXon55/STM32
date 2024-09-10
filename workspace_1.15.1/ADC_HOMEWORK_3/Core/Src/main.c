@@ -31,8 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_BUFFER_SIZE 2
-#define ADC2_BUFFER_SIZE 2
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -44,7 +43,6 @@
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 DMA_HandleTypeDef hdma_adc1;
-DMA_HandleTypeDef hdma_adc2;
 
 COMP_HandleTypeDef hcomp1;
 
@@ -71,16 +69,14 @@ static void MX_USART2_UART_Init(void);
 static void MX_ADC2_Init(void);
 /* USER CODE BEGIN PFP */
 void START_FUNCTIONS(void);
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 void blining_frequency(uint32_t pot_value);
-void led_brightness(uint32_t light_value);
 // void joystick_position(uint16_t* joystick);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t adc_buffer[ADC_BUFFER_SIZE];
-volatile static uint16_t joystick[ADC2_BUFFER_SIZE];
+volatile uint16_t adc_buffer;
+//volatile static uint16_t joystick[ADC2_BUFFER_SIZE];
 
 int __io_putchar(int ch)
 {
@@ -101,34 +97,38 @@ void joystick_position(uint16_t* jostick)
 }
 */
 
+void HAL_COMP_TriggerCallback(COMP_HandleTypeDef *hcomp)
+{
+	if(hcomp->Instance == COMP1)
+	{
+		if(HAL_COMP_GetOutputLevel(&hcomp1) == COMP_OUTPUT_LEVEL_HIGH)
+		{
+			uint32_t brightness = ( TIM3->ARR) / 4095;
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, brightness);
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, brightness);
+		} else {
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 0);
+		}
+	}
+}
+
+
 void blinking_frequency(uint32_t pot_value)
 {
-	uint32_t min_period = 100;
-	uint32_t max_period = 1000;
+	uint32_t min_period = 1;
+	uint32_t max_period = 10;
 
 	uint32_t period = min_period + (pot_value * (max_period - min_period) / 4095);
 	__HAL_TIM_SET_AUTORELOAD(&htim3, period);
 }
 
-void led_brightness(uint32_t light_value)
-{
-	uint32_t pwm_value = (light_value * TIM3->ARR) / 4095;
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, pwm_value);
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, pwm_value);
-}
-
-
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	if(hadc->Instance == ADC1)
 	{
-		uint32_t pot_value = adc_buffer[0];
-		uint32_t light_value = adc_buffer[1];
-
+		uint32_t pot_value = adc_buffer;
 		blinking_frequency(pot_value);
-		led_brightness(light_value);
-		//printf("Potentiometer: %lu, Light sensor: %lu\n", pot_value, light_value);
-
 	}
 
 }
@@ -136,29 +136,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 
 
 
-void START_FUNCTIONS(void)
-{
-	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, ADC_BUFFER_SIZE);
-	//HAL_ADC_Start_DMA(&hadc1, (uint32_t*)joystick, AD2_BUFFER_SIZE);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-
-
-}
-
-
-uint32_t test_adc_code(uint32_t canal)
-{
-	ADC_ChannelConfTypeDef sConfig = {0};
-	sConfig.Channel = canal;
-	sConfig.Rank = ADC_REGULAR_RANK_1;
-	sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
-	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
-
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	return HAL_ADC_GetValue(&hadc1);
-}
 
 
 /* USER CODE END 0 */
@@ -171,7 +148,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -208,12 +184,21 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  START_FUNCTIONS();
+
+  HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adc_buffer, 1);
+  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 3000);
+  HAL_COMP_Start(&hcomp1);
+  //HAL_ADC_Start_DMA(&hadc1, (uint32_t*)joystick, AD2_BUFFER_SIZE);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  uint32_t fotoresistor_value = test_adc_code(ADC_CHANNEL_2);
-	  printf("foto: %lu\n", fotoresistor_value);
+	 // HAL_ADC_ConvCpltCallback(&hadc1);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -319,11 +304,11 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.ContinuousConvMode = ENABLE;
-  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -351,14 +336,6 @@ static void MX_ADC1_Init(void)
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -393,15 +370,15 @@ static void MX_ADC2_Init(void)
   hadc2.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc2.Init.Resolution = ADC_RESOLUTION_12B;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.ScanConvMode = ADC_SCAN_ENABLE;
+  hadc2.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc2.Init.LowPowerAutoWait = DISABLE;
-  hadc2.Init.ContinuousConvMode = ENABLE;
-  hadc2.Init.NbrOfConversion = 2;
+  hadc2.Init.ContinuousConvMode = DISABLE;
+  hadc2.Init.NbrOfConversion = 1;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc2.Init.DMAContinuousRequests = ENABLE;
+  hadc2.Init.DMAContinuousRequests = DISABLE;
   hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc2.Init.OversamplingMode = DISABLE;
   if (HAL_ADC_Init(&hadc2) != HAL_OK)
@@ -413,19 +390,10 @@ static void MX_ADC2_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_6;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
-  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_5;
-  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -454,7 +422,7 @@ static void MX_COMP1_Init(void)
   hcomp1.Instance = COMP1;
   hcomp1.Init.InvertingInput = COMP_INPUT_MINUS_DAC1_CH1;
   hcomp1.Init.NonInvertingInput = COMP_INPUT_PLUS_IO1;
-  hcomp1.Init.OutputPol = COMP_OUTPUTPOL_INVERTED;
+  hcomp1.Init.OutputPol = COMP_OUTPUTPOL_NONINVERTED;
   hcomp1.Init.Hysteresis = COMP_HYSTERESIS_NONE;
   hcomp1.Init.BlankingSrce = COMP_BLANKINGSRC_NONE;
   hcomp1.Init.Mode = COMP_POWERMODE_HIGHSPEED;
@@ -537,7 +505,7 @@ static void MX_TIM3_Init(void)
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 9999;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
   {
     Error_Handler();
@@ -624,9 +592,6 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
-  /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 3, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
 
 }
 
