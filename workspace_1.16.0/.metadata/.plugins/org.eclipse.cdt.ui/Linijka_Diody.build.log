@@ -1,0 +1,10 @@
+19:29:26 **** Incremental Build of configuration Debug for project Linijka_Diody ****
+make -j12 all 
+arm-none-eabi-size  Linijka_Diody.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6528	     12	   1572	   8112	   1fb0	Linijka_Diody.elf
+Finished building: default.size.stdout
+ 
+
+19:29:26 Build Finished. 0 errors, 0 warnings. (took 320ms)
+

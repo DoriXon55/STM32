@@ -1,0 +1,10 @@
+22:48:50 **** Build of configuration Debug for project stm32_kurs_Diodry ****
+make -j12 all 
+arm-none-eabi-size  stm32_kurs_Diodry.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6120	     12	   1572	   7704	   1e18	stm32_kurs_Diodry.elf
+Finished building: default.size.stdout
+ 
+
+22:48:51 Build Finished. 0 errors, 0 warnings. (took 186ms)
+

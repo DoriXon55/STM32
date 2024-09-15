@@ -1,0 +1,10 @@
+13:35:28 **** Incremental Build of configuration Debug for project projekt2 ****
+make -j12 all 
+arm-none-eabi-size  projekt2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4948	     12	   1572	   6532	   1984	projekt2.elf
+Finished building: default.size.stdout
+ 
+
+13:35:28 Build Finished. 0 errors, 0 warnings. (took 350ms)
+

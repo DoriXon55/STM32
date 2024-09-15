@@ -1,0 +1,10 @@
+22:48:50 **** Build of configuration Debug for project Zadanie_Domowe_Diody_GPIO ****
+make -j12 all 
+arm-none-eabi-size  Zadanie_Domowe_Diody_GPIO.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6736	     12	   1572	   8320	   2080	Zadanie_Domowe_Diody_GPIO.elf
+Finished building: default.size.stdout
+ 
+
+22:48:50 Build Finished. 0 errors, 0 warnings. (took 186ms)
+
