@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\STM_I2C_12",
+    "\\STM_I2C_12\\Core",
+    "\\STM_I2C_12\\Core\\Inc",
+    "\\STM_I2C_12\\Core\\Src"
+  ],
+  "SelectedNode": "\\STM_I2C_12\\Core\\Inc\\eeprom.h",
+  "PreviewInSolutionExplorer": false
+}
